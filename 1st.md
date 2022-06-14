@@ -37,6 +37,10 @@ https://exam.sghaha.com
 >    (3번 결과물)
 
 ## 제출 결과물
-1. index.html의 s3 객체 url
-2. www.{도메인}.click url
-3. sample.{도메인}.click
+> 1. index.html의 s3 객체 url
+> 2. www.{도메인}.click url
+> 3. sample.{도메인}.click url
+
+## 발표
+> 1. 소감 발표, 30분 준비
+> 2. 2명 랜덤으로 추첨해서 발표
