@@ -414,3 +414,47 @@ Resources랑 동일한 레벨로
 ```
 <img width="1184" alt="스크린샷 2022-06-16 오후 5 48 35" src="https://user-images.githubusercontent.com/98567497/174031919-359eff23-5c9a-42b1-ba5e-153983474e93.png">
 
+
+
+### 7. 나트 게이트웨이 생성
+
+* 리소스 영역
+
+```
+    "NATGateway": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": ["NATIP", "AllocationId"]
+        },
+        "SubnetId": {
+          "Ref": "SubnetPublicA"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/NATGateway"
+            }
+          }
+        ]
+      }
+    },
+    "NATIP": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/NATIP"
+            }
+          }
+        ]
+      }
+    }
+```
+<img width="1184" alt="스크린샷 2022-06-16 오후 6 23 09" src="https://user-images.githubusercontent.com/98567497/174038693-27a6b9f1-31a9-4ec7-b1f3-d70725f8f4bc.png">
+
+
