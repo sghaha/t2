@@ -19,17 +19,21 @@
 ## 세부 내용
 
 ### 1. VPC 생성
-> 1. 10.0.0.0/16의 CIDR로 VPC를 생성합니다. (***CIDR은 파라미터로 콘솔에서 입력받게합니다.***)
+> 1. 10.0.0.0/16의 CIDR로 VPC를 생성합니다. 
 > 2. 생성할때는 꼭 Name태그를 붙여주세요
-> 3. 여기까지 CloudFormation을 이용하여 구축해봅니다.
-> 4. 제출물 1-1 : 여기까지의 CloudFormation yaml 파일
+> 3. 여기까지 CloudFormation을 이용하여 구축해봅니다.   
+>  (***CIDR은 파라미터로 콘솔에서 입력받게합니다.***)   
+>  (***VPC의 네임태그는 CloudFormation 스택이름을 참조하게 만듭니다.***)
+> 4. 제출물 1-1 : 여기까지의 CloudFormation yaml 파일 
 > 5. 제출물 1-2 : 여기까지의 CloudFormation json 파일
 
 ### 2. Subnet 생성
 > 1. Public 서브넷 2개, Private 서브넷 2개를 만듭니다.
-> 2. Public 서브넷 CIDR : 10.0.1.0/24, 10.0.2.0/24 (***CIDR은 파라미터로 콘솔에서 입력받게합니다.***)
-> 3. Private 서브넷 CIDR : 10.0.3.0/24, 10.0.4.0/24 (***CIDR은 파라미터로 콘솔에서 입력받게합니다.***)
-> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 2. Public 서브넷 CIDR : 10.0.1.0/24, 10.0.2.0/24 
+> 3. Private 서브넷 CIDR : 10.0.3.0/24, 10.0.4.0/24 
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.   
+>  (***CIDR은 파라미터로 콘솔에서 입력받게합니다.***)   
+>  (***서브넷의 네임태그는 CloudFormation 스택이름을 참조하게 만듭니다.***)
 > 5. 제출물 2-1 : 여기까지의 CloudFormation yaml 파일
 > 6. 제출물 2-2 : 여기까지의 CloudFormation json 파일
 
@@ -37,7 +41,8 @@
 > 1. 인터넷 게이트웨이를 만듭니다.
 > 2. 퍼블릭 서브넷용 라우팅 테이블을 만듭니다.
 > 3. 라우팅 테이블에 인터넷 게이트웨이와 public 서브넷을 연결합니다.
-> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.    
+>  (***IGW의 네임태그는 CloudFormation 스택이름을 참조하게 만듭니다.***)
 > 5. 제출물 3-1 : 여기까지의 CloudFormation yaml 파일
 > 6. 제출물 3-2 : 여기까지의 CloudFormation json 파일
 
@@ -46,7 +51,8 @@
 > 1. public 서브넷에 NAT 게이트웨이를 만듭니다.
 > 2. 프라이빗 서브넷용 라우팅 테이블을 만듭니다.
 > 3. 라우팅 테이블에 NAT 게이트웨이와 프라이빗 서브넷을 연결합니다.
-> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.   
+>  (***NAT Gateway의 네임태그는 CloudFormation 스택이름을 참조하게 만듭니다.***)
 > 5. 제출물 4-1 : 여기까지의 CloudFormation yaml 파일
 > 6. 제출물 4-2 : 여기까지의 CloudFormation json 파일
 
