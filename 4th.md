@@ -6,9 +6,7 @@
 
 
 ## 결과물 미리보기
-* 클라우드 포메이션 디자이너에서 볼수있는 구조 
-<img width="1053" alt="스크린샷 2022-06-16 오후 6 56 45" src="https://user-images.githubusercontent.com/98567497/174061409-8d01262c-a169-4298-90e0-97a57ae14a24.png">
-
+TODO
 
 ## 주의 사항
 
@@ -58,6 +56,10 @@
 > 5. 제출물 4-1 : 여기까지의 CloudFormation yaml 파일
 > 6. 제출물 4-2 : 여기까지의 CloudFormation json 파일
 
+### 5. CloudFormation 파일 output 만들기
+> 새 CloudFormation 파일을 만들고 이전에 만든 파일의 리소스를 참조할 것입니다.   
+> 그렇기 위해선 '구' 파일에서 output으로 빼주고 '신'파일에서 참조해주어야 합니다.   
+> 이 작업을 진행합니다.
 
 
 ## 제출 결과물
