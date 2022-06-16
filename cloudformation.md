@@ -11,10 +11,14 @@
             "Properties": {
                 "CidrBlock" : "10.0.0.0/16",
                 "Tags" : [
-                     {"Key" : "Name", "Value" : "sghahaVPC" },
+                    {
+                        "Key" : "Name",
+                        "Value" : "sghahaVPC"
+                    },
                 ],
             }
         }
     }
 }
+
 ```
