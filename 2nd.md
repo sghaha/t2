@@ -1,7 +1,7 @@
 # 2주차 - EKS 실습
 
 ## 실습 매뉴얼
-[EKS 실습 매뉴얼 ](https://github.com/sghaha/amazon-eks-hands-on)
+[EKS 실습 매뉴얼 바로가기](https://github.com/sghaha/amazon-eks-hands-on)
 
 ## 목표
 * EKS를 이용해서 간단한 2티어(백엔드 - 프론트엔드) 시스템을 구축해보자
