@@ -1,8 +1,14 @@
 # 4주차 도전과제
 
 ## 목표
+시스템을 구축할때 VPC, 서브넷등등을 만드는건 손이 너무 많이 간다.   
+클라우드 포메이션을 이용해서 간단히 인프라를 구축하는 방법을 익힌다.
+
 
 ## 결과물 미리보기
+* 클라우드 포메이션 디자이너에서 볼수있는 구조 
+<img width="1053" alt="스크린샷 2022-06-16 오후 6 56 45" src="https://user-images.githubusercontent.com/98567497/174061409-8d01262c-a169-4298-90e0-97a57ae14a24.png">
+
 
 ## 주의 사항
 
@@ -15,17 +21,33 @@
 ### 1. VPC 생성
 > 1. 10.0.0.0/16의 CIDR로 VPC를 생성합니다.
 > 2. 생성할때는 꼭 Name태그를 붙여주세요
-> 3. 여기까지 CloudFormationd을 이용하여 구축해봅니다.
+> 3. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 4. 제출물 1 : 여기까지의 CloudFormation 파일 (yaml 혹은 json)
 
 ### 2. Subnet 생성
 > 1. Public 서브넷 2개, Private 서브넷 2개를 만듭니다.
 > 2. Public 서브넷 CIDR : 10.0.1.0/24, 10.0.2.0/24
 > 3. Private 서브넷 CIDR : 10.0.3.0/24, 10.0.4.0/24
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 5. 제출물 2 : 여기까지의 CloudFormation 파일 (yaml 혹은 json)
+
+### 3. 인터넷 게이트웨이
+> 1. 인터넷 게이트웨이를 만듭니다.
+> 2. 퍼블릭 서브넷용 라우팅 테이블을 만듭니다.
+> 3. 라우팅 테이블에 인터넷 게이트웨이와 public 서브넷을 연결합니다.
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 5. 제출물 3 : 여기까지의 CloudFormation 파일 (yaml 혹은 json)
+
+### 4. NAT 게이트 웨이
+> 1. NAT 게이트웨이를 만듭니다.
+> 2. 프라이빗 서브넷용 라우팅 테이블을 만듭니다.
+> 3. 라우팅 테이블에 NAT 게이트웨이와 프라이빗 서브넷을 연결합니다.
+> 4. 여기까지 CloudFormation을 이용하여 구축해봅니다.
+> 5. 제출물 4 : 여기까지의 CloudFormation 파일 (yaml 혹은 json)
+
 
 ## 제출 결과물
-> 1. index.html의 s3 객체 url
-> 2. www.{도메인}.click url
-> 3. sample.{도메인}.click url
+> 1. 각각의 CloudFormation 파일
 
 ## 발표
 > 1. 소감 발표, 30분 준비
