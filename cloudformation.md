@@ -251,11 +251,11 @@
 
 ```
 
-### 3. 서브넷끼리 묶기
+### 3. Outputs로 묶어주기
 이제는 길어서 부분부분만 적어야겠따.   
-
-* 퍼블릭 서브넷
+Resources랑 동일한 레벨로 
 ```
+  "Outputs": {
     "SubnetsPublic": {
       "Value": {
         "Fn::Join": [
@@ -275,11 +275,7 @@
           "Fn::Sub": "${AWS::StackName}::SubnetsPublic"
         }
       }
-    }
-```
-* 프라이빗 서브넷
-
-```
+    },
     "SubnetsPrivate": {
       "Value": {
         "Fn::Join": [
@@ -299,5 +295,16 @@
           "Fn::Sub": "${AWS::StackName}::SubnetsPrivate"
         }
       }
+    },
+    "VPC": {
+      "Value": {
+        "Ref": "VPC"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}::VPC"
+        }
+      }
     }
+  }
 ```
