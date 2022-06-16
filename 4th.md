@@ -18,7 +18,9 @@
 > 3. 여기까지 CloudFormationd을 이용하여 구축해봅니다.
 
 ### 2. Subnet 생성
-> 1. 
+> 1. Public 서브넷 2개, Private 서브넷 2개를 만듭니다.
+> 2. Public 서브넷 CIDR : 10.0.1.0/24, 10.0.2.0/24
+> 3. Private 서브넷 CIDR : 10.0.3.0/24, 10.0.4.0/24
 
 ## 제출 결과물
 > 1. index.html의 s3 객체 url
