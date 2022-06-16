@@ -308,3 +308,24 @@ Resources랑 동일한 레벨로
     }
   }
 ```
+
+
+4. 인터넷 게이트 웨이
+
+* 리스소
+
+```
+    "InternetGateway": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/InternetGateway"
+            }
+          }
+        ]
+      }
+    },
+```
