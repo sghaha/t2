@@ -1,4 +1,4 @@
-# 2주차 - EKS 실습
+# 두번째 - EKS 실습
 
 ## 실습 매뉴얼
 [EKS 실습 매뉴얼 바로가기](https://github.com/sghaha/amazon-eks-hands-on)
