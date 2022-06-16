@@ -1,4 +1,4 @@
-# 첫번째 도전과제
+# 3주차 도전과제
 
 ## 목표
 * 정적 웹 페이지 개발/배포를 해보자   
@@ -36,15 +36,6 @@ https://exam.sghaha.com
 > 2. sample.{도메인}.click 에 대해 CloudFront배포를 바라보도록 정책배포
 >    (3번 결과물)
 
-### 6. Cloudfront 무효화(invalidation)해보기
-> s3에 파일을 수정하면 CloudFront때문에 바로 적용안되는 경우가있습니다.   
-> 이경우 클라우드프론트 무효화를 하면 엣지로캐에이션메 몇분내로 전파가됩니다.   
-> 무효화를 진행해봅시다.
-
-### 7. 추가 과제
-> 지난주에 실습한 EKS핸즈온의 FrontEND ALB도 Route53 레코드로 엮어보자
-
-
 ## 제출 결과물
 > 1. index.html의 s3 객체 url
 > 2. www.{도메인}.click url
@@ -53,4 +44,3 @@ https://exam.sghaha.com
 ## 발표
 > 1. 소감 발표, 30분 준비
 > 2. 2명 랜덤으로 추첨해서 발표
-> 3. ***CloudFront 무효화(Invalidation)과정을 꼭 발표해야합니다***
