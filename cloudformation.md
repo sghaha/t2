@@ -329,3 +329,24 @@ Resources랑 동일한 레벨로
       }
     },
 ```
+
+### 5. 라우팅 테이블
+* 리소스
+```
+    "PublicRouteTable": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/PublicRouteTable"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    }
+```
