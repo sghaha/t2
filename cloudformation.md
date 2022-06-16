@@ -73,3 +73,34 @@
     }
 }
 ```
+
+### 2. 서브넷 만들기
+
+* 왠지 이렇게 따로 돌리면 마지막 쪽에 VPC가 없다고 안될것같긴한데 일단 해보자
+```
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "sghaha's subnet",
+  "Resources": {
+    "SubnetPrivateAPNORTHEAST2B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2b",
+        "CidrBlock": "10.0.1.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateAPNORTHEAST2B"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    }
+  }
+}
+
+```
