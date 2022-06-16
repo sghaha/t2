@@ -6,6 +6,9 @@
 ## 목표
 * EKS를 이용해서 간단한 2티어(백엔드 - 프론트엔드) 시스템을 구축해보자
 
+## 개요
+https://github.com/sghaha/amazon-eks-hands-on/file/EKS Hands-On 개요.pptx
+
 ## 결과물 미리보기
 TODO
 
