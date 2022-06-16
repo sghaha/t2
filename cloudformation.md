@@ -357,3 +357,60 @@ Resources랑 동일한 레벨로
  : 퍼블릭 서브넷이랑 인터넷게이트웨이가 연결은 안되어있다.
  
 <img width="764" alt="스크린샷 2022-06-16 오후 5 11 23" src="https://user-images.githubusercontent.com/98567497/174024569-492f5728-dc87-4bd0-97c6-825fd4f7b5ec.png">
+
+
+### 6. 인터넷 게이트 웨이 연결하기
+
+* 리소스
+* VPCGatewayAttachment는 왜하는지 모르겠는데.. 일단..
+
+```
+    "VPCGatewayAttachment": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "InternetGateway"
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "PublicSubnetRoute": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "InternetGateway"
+        },
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        }
+      },
+      "DependsOn": ["VPCGatewayAttachment"]
+    },
+    "RouteTableAssociationPublicA": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SubnetPublicA"
+        }
+      }
+    },
+    "RouteTableAssociationPublicC": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PublicRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SubnetPublicC"
+        }
+      }
+    }
+```
+<img width="1184" alt="스크린샷 2022-06-16 오후 5 48 35" src="https://user-images.githubusercontent.com/98567497/174031919-359eff23-5c9a-42b1-ba5e-153983474e93.png">
+
