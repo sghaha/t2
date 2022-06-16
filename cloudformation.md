@@ -49,3 +49,27 @@
     }
 }
 ```
+
+* 버전이랑 설명을 적어줬다.
+```
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "sghaha's cloudformation study",
+    "Resources": {
+        "VPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock" : "10.0.0.0/16",
+                "Tags" : [
+                    {
+                        "Key" : "Name",
+                        "Value" : {
+                            "Fn::Sub": "${AWS::StackName}/VPC"
+                        }
+                    },
+                ],
+            }
+        }
+    }
+}
+```
