@@ -61,8 +61,22 @@ TODO
 > 새 CloudFormation 파일을 만들고 이전에 만든 파일의 리소스를 참조할 것입니다.   
 > 그렇기 위해선 '구' 파일에서 output으로 빼주고 '신'파일에서 참조해주어야 합니다.   
 > (즉 다른 스택으로 리소스값을 전달하려면 output을 이용해야합니다.)   
-> 이 작업을 진행합니다.
-
+>    
+> 이 작업을 진행합니다.   
+>     
+> 아웃풋으로 뽑을 리스트는 아래와 같습니다.(네이밍은 개별로 다르게 할수있습니다.)
+> * VPC
+> * VPCCIDR
+> * PublicSubnetA
+> * PublicSubnetACIDR
+> * PublicSubnetC
+> * PublicSubnetCCIDR
+> * PrivateSubnetA
+> * PrivateSubnetACIDR
+> * PrivateSubnetC
+> * PrivateSubnetCCIDR
+> * PublicRTB
+> * PrivateRTB
 
 ## 제출 결과물
 > 1. 각각의 CloudFormation 파일
