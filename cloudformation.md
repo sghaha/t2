@@ -250,3 +250,52 @@
 }
 
 ```
+
+### 3. 서브넷끼리 묶기
+* 퍼블릭 서브넷
+```
+    "SubnetsPublic": {
+      "Value": {
+        "Fn::Join": [
+          ",",
+          [
+            {
+              "Ref": "SubnetPublicA"
+            },
+            {
+              "Ref": "SubnetPublicC"
+            }
+          ]
+        ]
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}::SubnetsPublic"
+        }
+      }
+    }
+```
+* 프라이빗 서브넷
+
+```
+    "SubnetsPrivate": {
+      "Value": {
+        "Fn::Join": [
+          ",",
+          [
+            {
+              "Ref": "SubnetPrivateA"
+            },
+            {
+              "Ref": "SubnetPrivateC"
+            }
+          ]
+        ]
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}::SubnetsPrivate"
+        }
+      }
+    }
+```
