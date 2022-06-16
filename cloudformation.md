@@ -1,4 +1,4 @@
-# cloudfront 체험해보기
+# cloudformation 체험해보기
 
 공부중!
 
