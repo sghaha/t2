@@ -458,3 +458,70 @@ Resources랑 동일한 레벨로
 <img width="1184" alt="스크린샷 2022-06-16 오후 6 23 09" src="https://user-images.githubusercontent.com/98567497/174038693-27a6b9f1-31a9-4ec7-b1f3-d70725f8f4bc.png">
 
 
+### 8. 나트 게이트 웨이 라우팅 테이블에 연결
+
+```
+   "PrivateRouteTable": {
+      "Type": "AWS::EC2::RouteTable",
+      "Description": "라우트테이블 만들고",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/PrivateRouteTable"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "NATPrivateSubnetRoute": {
+      "Type": "AWS::EC2::Route",
+      "Description": "나트게이트 웨이랑 서브넷 이랑 연동해준다",
+      "Properties": {
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "NATGateway"
+        },
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        }
+      }
+    },
+```
+
+
+### 9. 프라이빗 서브넷이랑 라우팅테이블이랑 연결
+
+```
+    "RouteTableAssociationPrivateA": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Description": "프라이빗 서브넷이랑 라우팅 테이블이랑 연동해준다",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SubnetPrivateA"
+        }
+      }
+    },
+    "RouteTableAssociationPrivateC": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Description": "프라이빗 서브넷이랑 라우팅 테이블이랑 연동해준다",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "PrivateRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "SubnetPrivateC"
+        }
+      }
+    }
+```
+<img width="1053" alt="스크린샷 2022-06-16 오후 6 56 45" src="https://user-images.githubusercontent.com/98567497/174060342-3b132f7f-a41f-4660-a083-6dd27ab4f41f.png">
+
+
