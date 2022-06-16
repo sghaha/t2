@@ -104,3 +104,47 @@
 }
 
 ```
+
+* 역시 안된다. 아래처럼 합쳐주자
+
+```
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "sghaha's subnet",
+  "Resources": {
+    "VPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/VPC"
+            }
+          }
+        ]
+      }
+    },
+    "SubnetPrivateAPNORTHEAST2B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2b",
+        "CidrBlock": "10.0.1.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateAPNORTHEAST2B"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    }
+  }
+}
+
+```
