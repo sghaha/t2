@@ -148,3 +148,105 @@
 }
 
 ```
+
+* 잘되니까, 퍼블릭2개, 프라이빗2개 만들자
+* 퍼블릭 a : 10.0.1.0/24
+* 퍼블릭 c : 10.0.2.0/24
+* 프라이빗 a : 10.0.3.0/24
+* 프라이빗 c : 10.0.4.0/24
+
+```
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "sghaha's subnet",
+  "Resources": {
+    "VPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/VPC"
+            }
+          }
+        ]
+      }
+    },
+    "SubnetPublicA": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2a",
+        "CidrBlock": "10.0.1.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPublicA"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "SubnetPublicC": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2c",
+        "CidrBlock": "10.0.2.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPublicC"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "SubnetPrivateA": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2a",
+        "CidrBlock": "10.0.3.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateA"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "SubnetPrivateC": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "AvailabilityZone": "ap-northeast-2c",
+        "CidrBlock": "10.0.4.0/24",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": {
+              "Fn::Sub": "${AWS::StackName}/SubnetPrivateC"
+            }
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    }
+  }
+}
+
+```
