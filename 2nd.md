@@ -8,7 +8,7 @@
 
 
 ## 결과물 미리보기
-TODO
+http://k8s-default-frontend-3a6fb0b00c-1677742564.ap-northeast-2.elb.amazonaws.com/
 
 ## 제출 결과물
 > 1. Frontend DNS 주소
