@@ -25,6 +25,15 @@ TODO
 > ec2콘솔 - 키페어에 들어가서   
 > RSA유형으로 만듭니다.
 
+### 2. Bastion 서버를 위한 Security Group(보안그룹) 생성
+> * 아래와 같은 Bastion SG를 "기존에 만든" VPC에 생성합니다.   
+>    
+> 유형 : SSH   
+> 프로토콜 : TCP   
+> 포트 : 22   
+> from : 0.0.0.0/0 (AnyWhere)
+
+
 ## 제출 결과물
 > 1. 각각의 CloudFormation 파일
 
