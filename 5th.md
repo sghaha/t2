@@ -32,7 +32,21 @@ TODO
 > 프로토콜 : TCP   
 > 포트 : 22   
 > from : 0.0.0.0/0 (AnyWhere)  ::: 내 아이피만 열어줘도 된다.
+>     
+> 제출물 1-1 : 여기까지의 CloudFormation yaml 파일   
+> 제출물 1-2 : 여기까지의 CloudFormation json 파일
 
+
+### 3. Bastion 서버 생성 
+> 1. Amazon Linux 2 로 인스턴스를 생성합니다.
+> 2. Auto-assign public IP(퍼블릭 IP 자동 할당) 활성화
+> 3. 보안그룹은 2.에서 만들어준 보안그룹
+> 4. 키페어도 1.에서 만들어준것으로
+> 5. VPC는 기존에 만든것으로
+> 6. 서브넷은 PublicSubnet   
+>    
+> 제출물 1-1 : 여기까지의 CloudFormation yaml 파일.  
+> 제출물 1-2 : 여기까지의 CloudFormation json 파일
 
 ## 제출 결과물
 > 1. 각각의 CloudFormation 파일
