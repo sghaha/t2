@@ -54,7 +54,7 @@ TODO
 
 
 ### 4. Bastion 서버 접속 확인
-> Bastion 서버가 띄워지면 퍼블릭 ip가 할당됩니다. 해당 ip 와
+> Bastion 서버가 띄워지면 퍼블릭 ip가 할당됩니다. 해당 ip와 1.에서 다운받은 키페어로 Bastion서버에 접속해봅니다.   
 
 ## 제출 결과물
 > 1. 각각의 CloudFormation 파일
