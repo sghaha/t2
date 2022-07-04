@@ -85,6 +85,10 @@ TODO
 > ec2콘솔 - 키페어에 들어가서   
 > RSA유형으로 만듭니다.
 
+
+### [4주차(2) - 도전 과제4](https://github.com/sghaha/t2/blob/main/5th.md) <- 내용이 이어집니다.
+
+
 ## 제출 결과물
 > 1. 각각의 CloudFormation 파일
 
