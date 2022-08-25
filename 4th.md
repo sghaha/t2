@@ -86,7 +86,39 @@ TODO
 > RSA유형으로 만듭니다.
 
 
-### [4주차(2) - 도전 과제4](https://github.com/sghaha/t2/blob/main/5th.md) <- 내용이 이어집니다.
+
+### 7. Bastion 서버를 위한 Security Group(보안그룹) 생성
+> * 아래와 같은 Bastion SG를 "기존에 만든" VPC에 생성합니다.   
+>    
+> 유형 : SSH   
+> 프로토콜 : TCP   
+> 포트 : 22   
+> from : 0.0.0.0/0 (AnyWhere)  ::: 내 아이피만 열어줘도 된다.
+>   
+> 여기까지 CloudFormation을 이용하여 구축해봅니다.   
+>   
+> 제출물 1-1 : 여기까지의 CloudFormation yaml 파일   
+> 제출물 1-2 : 여기까지의 CloudFormation json 파일
+
+
+### 8. Bastion 서버 생성 
+> 1. Amazon Linux 2 로 인스턴스를 생성합니다.
+> 2. Auto-assign public IP(퍼블릭 IP 자동 할당) 활성화
+> 3. 보안그룹은 2.에서 만들어준 보안그룹
+> 4. 키페어도 1.에서 만들어준것으로
+> 5. VPC는 기존에 만든것으로
+> 6. 서브넷은 PublicSubnet   
+> 7. 여기까지 CloudFormation을 이용하여 구축해봅니다.   
+>    (***키페어 이름은 스택생성할때 콘솔로 입력 받게 구성합니다.***)   
+>    
+> 제출물 1-1 : 여기까지의 CloudFormation yaml 파일.  
+> 제출물 1-2 : 여기까지의 CloudFormation json 파일
+
+
+### 9. Bastion 서버 접속 확인
+> Bastion 서버가 띄워지면 퍼블릭 ip가 할당됩니다. 해당 ip와 1.에서 다운받은 키페어로 Bastion서버에 접속해봅니다.   
+
+
 
 
 ## 제출 결과물
