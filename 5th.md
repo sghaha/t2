@@ -3,9 +3,8 @@
 ## 목표
 * 스프링 프로젝트를 도커라이징해서 ecr에 넣어보자
 
-## 결과물 미리보기
-N/A
-
+## 참고자료
+> [Spring 환경 세팅](https://github.com/sghaha/t2/blob/main/spring.md)
 
 
 ## 세부 내용
