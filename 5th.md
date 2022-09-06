@@ -21,7 +21,8 @@
 ### 3. 스프링 생성
 > 1. https://start.spring.io/ 에서 스프링을 spring web생성/다운받는다.
 > 2. 디펜던시는 spring web하나만 넣어줘도 일단은 괜찮다
-> 3. Generate 눌러 다운받는다. 
+> 3. gradle/jar/java11 로 선택하자 
+> 4. Generate 눌러 다운받는다. 
 
 
 ### 4. github 레포지토리
