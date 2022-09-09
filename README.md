@@ -1,4 +1,5 @@
 # t2 인턴십
+t2 인턴십 과정입니다. 
 
 ### 2. 두번째 - [EKS 실습](https://github.com/sghaha/t2/blob/main/2nd.md)
 ### 2-1. 두번째반 - [도전과제 1 : 스프링](https://github.com/sghaha/t2/blob/main/5th.md)
