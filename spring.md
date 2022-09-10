@@ -282,3 +282,40 @@ org.hibernate.type: trace
 
 (맥 + 인텔리제이 엔터프라이즈 버전 기준)   
 File - Project Structure - Modules클릭 - 메인 펼쳐서 JPA있는지 확인
+
+
+
+##
+
+##
+
+## 11. MYSQL
+
+### 11.1 build.gradle 추가
+
+```
+runtimeOnly 'mysql:mysql-connector-java'
+```
+
+### 11.2 application.yml 수정
+
+```
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:[포트]/[스키마]?serverTimezone=Asia/Seoul
+    username: [아이디]
+    password: "[패스워드]" 
+```
+
+### 11.3 table 초기화 전략 바꾸기
+
+application.yml을 아래와 같이 수정해서 뜰때마다 테이블 다시 만드는거 안하게 바꾼다. 어짜피 나는 test할땐 인메모리 h2쓴다.
+
+``` 
+jpa:
+  hibernate:
+    ddl-auto: none
+```
+
+
