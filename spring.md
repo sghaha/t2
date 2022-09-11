@@ -1,4 +1,10 @@
-# Spring 환경세팅 및 설명
+# jpabook
+
+##
+
+##
+
+# 환경세팅 및 설명
 
 ##
 
@@ -270,20 +276,42 @@ logging.level:
   # org.hibernate.type: trace
 ```
 
-### 10.6 쿼리 파라미터 로그 남기기
+### 10.6 쿼리 파라미터 로그 남기기(첫번째 방법)
 
 * application.yml 마지막에 이거 추가
 
 ```
-org.hibernate.type: trace
+logging.level:
+  org.hibernate.SQL: debug 
+  org.hibernate.type: trace
 ```
+
+### 10.6 쿼리 파라미터 로그 남기기(두번째 방법)
+
+위에꺼나 이거나 둘중 하나 적용하면 됨
+
+1) build.gradle에 추가
+
+```
+implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+```
+
+2) application.yml에 추가
+
+```
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+```
+
+3) *** 주의 ***
+   운영계에는 enable-logging: 를 꼭 꼭꼮꼮꼬꼮 false로 할 것
 
 ### 10.7 인텔리제이 JPA세팅
 
 (맥 + 인텔리제이 엔터프라이즈 버전 기준)   
 File - Project Structure - Modules클릭 - 메인 펼쳐서 JPA있는지 확인
-
-
 
 ##
 
@@ -317,5 +345,3 @@ jpa:
   hibernate:
     ddl-auto: none
 ```
-
-
