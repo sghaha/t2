@@ -30,6 +30,8 @@ https://start.spring.io 여기서 편하게 프로젝트 초기 세팅 가능함
 - h2 (mysql사용할거면 이거 안해도됨)
 - validation
 - lombok
+- mysql (이건 챕터11로 가보자)
+- OpenFeign (13챕터)
 
 ### 1.4 다운로드
 
@@ -345,3 +347,243 @@ jpa:
   hibernate:
     ddl-auto: none
 ```
+
+##
+
+##                   
+
+## 12. QueryDSL
+
+### 12.1 build.gradle을 아래 참고하면서 수정
+
+```
+//For QueryDsl
+//https://dingdingmin-back-end-developer.tistory.com/entry/Spring-Data-JPA-7-Querydsl-%EC%82%AC%EC%9A%A9-gradle-7x
+buildscript {
+    ext {
+        queryDslVersion = "5.0.0"
+    }
+}
+//For QueryDsl end
+
+plugins {
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'java'
+    // querydsl 플러그인 추가
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+
+group = 'com.sghaha'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // querydsl 디펜던시 추가
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+}
+
+
+// querydsl 사용할 경로 지정합니다. 현재 지정한 부분은 .gitignore에 포함되므로 git에 올라가지 않습니다.
+def querydslDir = "$buildDir/generated/querydsl"
+//def querydslDir = "src/main/generated"
+
+// JPA 사용여부 및 사용 경로 설정
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+// build시 사용할 sourceSet 추가 설정
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+
+// querydsl 컴파일 시 사용할 옵션 설정
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+// querydsl이 compileClassPath를 상속하도록 설정
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+```
+
+### 12.2 gradle 창에서
+
+Tasks - other - compileQurydsl 더블클릭   
+build/generated/querydsl에 Q***생성됨
+
+##
+
+##
+
+## 13. Spring Cloud OpenFeign
+
+### 13.1 Gradle
+
+```
+plugins {
+  id 'org.springframework.boot' version '2.7.3'
+  id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+  id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  set('springCloudVersion', "2021.0.4")
+}
+
+dependencies {
+  implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+  imports {
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+  }
+}
+
+tasks.named('test') {
+  useJUnitPlatform()
+}
+
+```
+
+### 13.2 yml
+
+```
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+```
+
+### 13.3 운영계가 아닌 yml
+
+- Spring cloud openfeign의 로그를 보기 위해서 로길레벨 설정(프로젝트 시작 패키지명을 적는다.)
+
+```
+logging:
+  level:
+    com.sghaha.jpabook: debug
+```
+
+### 13.4 운영계 yml
+
+- 로그가 너무 많으니까 info
+
+```
+logging:
+  level:
+    com.sghaha.jpabook: info
+```
+
+##
+
+##
+
+## 14. 카카오 로그인
+
+### 14.1. 접속
+
+https://developers.kakao.com
+
+### 14.2. 가입
+
+### 14.3. 애플리케이션 추가하기
+
+- 앱이름 대충 : spring-api-template
+- 사업자 명 : spring-api-template
+- 저장
+
+### 14.4. 플랫폼등록 & Redirect URI 등록
+
+1) 만든 애플리케이션 클릭해서
+2) 플랫폼 클릭 - Web플랫폼 등록
+3) 사이트 도메인 : http://localhost:8080
+4) 기본 도메인 : http://localhost:8080
+5) Redirect URI등록하러 가기 클릭
+6) 활성화 설정 on
+7) Redirect URI등록 클릭
+8) 대충 Redirect URI : http://localhost:8080/oauth/kakao/callback
+9) 저장
+
+### 14.5. 요약정보 클릭
+
+- REST API키 : 클라이언의 ID로 사용할 키
+
+### 14.6. 클라이언트 시크릿 보기 & 설정
+
+1) 왼쪽메뉴에서 보안 클릭, 클라이언트 시크릿 보인다.
+2) 클라이언트 시크릿 : 애플리케이션의 비밀번호라고 생각하면 됨
+3) 활성화 상태 사용함으로 변경하자
+
+### 14.7. 로그인할때 사용자가 어떤 항목에 동의할지 설정
+
+1) 왼쪽메뉴에서 동의항목 클릭하면 항목이 보임
+
+### 14.8. 우리가 개발중인 애플리케이션에서 쓸거
+
+1) REST API키
+2) 클라이언트 시크릿
+
+### 14.9. yml
+
+```
+kakao:
+  client:
+    id: 161f8000000000000090f
+    secret: UkHU0000000000000000000000ZV
+```
+
+### 14.10.
+
+1) 사이트 상단 문서 클릭
+2) 카카오 로그인 - REST API클릭
+3) 인가 코드를 발급 받아야 한다.
