@@ -4,7 +4,8 @@
 * 스프링 프로젝트를 도커라이징해서 ecr에 넣어보자
 
 ## 참고자료
-> [Spring 환경 세팅](https://github.com/sghaha/t2/blob/main/spring.md)
+> [Spring 환경 세팅](https://github.com/sghaha/t2/blob/main/spring.md)   
+> [Spring 환경 세팅2 (비슷한데 조금 다른 버전)](https://github.com/sghaha/oacle-backend-spring/blob/main/README.md)
 
 
 ## 세부 내용
