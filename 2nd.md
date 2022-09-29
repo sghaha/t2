@@ -10,7 +10,7 @@
 ## 결과물 미리보기
 http://k8s-default-frontend-3a6fb0b00c-1677742564.ap-northeast-2.elb.amazonaws.com/
 
-## 제출 결과물
+## 제출 결과물(스크린샷 포함)
 > 1. Frontend DNS 주소
 > 2. Backend DNS 주소
 > 3. ArgoCD ELB DNS 주소
